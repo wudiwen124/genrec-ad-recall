@@ -1,0 +1,12 @@
+local:
+  code_root: "."
+  raw_data_root: "/path/to/TencentGR-1M"
+
+server:
+  project_root: "/data/taac2025"
+  code_root: "/data/taac2025/code"
+  raw_data_root: "/data/taac2025/raw/TencentGR-1M"
+  processed_root: "/data/taac2025/processed"
+  checkpoint_root: "/data/taac2025/checkpoints"
+  index_root: "/data/taac2025/index"
+  log_root: "/data/taac2025/logs"

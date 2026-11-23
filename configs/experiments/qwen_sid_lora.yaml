@@ -1,0 +1,43 @@
+# Canonical pilot specification for the MiniOneRec-style V2 branch.
+model:
+  base: Qwen2.5-0.5B
+  dtype: bfloat16
+  source: modelscope
+tokenizer:
+  base_vocab_size: 151665
+  sid_tokens: 2780
+  context_tokens: 214
+  total_vocab_size: 154659
+  codebook_sizes: [256, 256, 256, 256, 1756]
+sequence:
+  max_history: 100
+  max_length: 800
+  context: [sid, action, time, user_profile]
+warmup:
+  samples: 10000
+  batch_size: 2
+  gradient_accumulation: 8
+  learning_rate: 0.0005
+  trainable: [embed_tokens, lm_head]
+lora:
+  samples: 50000
+  batch_size: 12
+  gradient_accumulation: 1
+  learning_rate: 0.0002
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+  modules_to_save: []
+  freeze_warmed_heads: true
+decoding:
+  max_new_tokens: 5
+  beam_size: 10
+  constrained_by_candidate_sid_trie: true

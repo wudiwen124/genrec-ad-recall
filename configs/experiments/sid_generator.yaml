@@ -1,0 +1,21 @@
+# Canonical specification. The executable entry point is
+# scripts/train_sid_generator.sh.
+tokenizer:
+  source: N4_item_vector
+  levels: 4
+  clusters_per_level: 256
+  fit_samples_per_level: 200000
+  collision_suffix: true
+generator:
+  hidden_size: 64
+  num_layers: 2
+  num_heads: 4
+  dropout: 0.1
+  epochs: 3
+  batch_size: 512
+  learning_rate: 0.001
+  seeds: [2026, 2027]
+decoding:
+  mode: candidate_prefix_constrained
+  beam_size: 100
+  candidate_k: 100

@@ -1,0 +1,13 @@
+tokenizer: rqvae
+input: N4_item_vector
+normalization:
+  center: true
+  scaling: global_rms
+levels: 4
+codes_per_level: 256
+fit_samples: 200000
+epochs: 20
+batch_size: 2048
+learning_rate: 0.0001
+codebook_initialization: residual_rq_kmeans
+collision_suffix: true

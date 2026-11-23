@@ -1,0 +1,23 @@
+# Canonical evaluation settings. See reports/reproduction.md for commands.
+users:
+  n4_full_test: 118457
+  sid_evaluation: 10000
+candidates:
+  full: 660000
+  mapped: 511029
+metrics:
+  - recall_at_50
+  - recall_at_100
+  - recall_at_500
+  - recall_at_1000
+  - recall_at_2000
+fusion:
+  method: rrf
+  constant: 60
+  routes:
+    - {name: n4, k: 500}
+    - {name: sid, k: 100}
+latency:
+  sid_beam_size: 100
+  sid_candidate_k: 100
+  batch_sizes: [1, 16, 64]

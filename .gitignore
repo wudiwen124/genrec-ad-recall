@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Data, caches, checkpoints and logs
+/data/
+/raw/
+/processed/
+/checkpoints/
+/artifacts/
+/logs/
+/cache/
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+*.parquet
+*.pkl
+*.pickle
+part.*
+part*.raw
+
+# Editor and operating system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build output
+build/
+dist/
+*.egg-info/
